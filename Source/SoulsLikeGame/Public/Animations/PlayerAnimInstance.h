@@ -7,7 +7,7 @@
 #include "PlayerAnimInstance.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class SOULSLIKEGAME_API UPlayerAnimInstance : public UAnimInstance
@@ -16,9 +16,22 @@ class SOULSLIKEGAME_API UPlayerAnimInstance : public UAnimInstance
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float CurrentVelocity{ 0.0f };
+	float CurrentSpeed{ 0.0f };
 
 	UFUNCTION(BlueprintCallable)
-	void UpdateVelocity();
-	
+	void UpdateSpeed();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsInCombat{ false };
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float currentDirection{ 0.0f };
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void HandleUpdatedTarget(AActor* NewTargetActorRef);
+
+	UFUNCTION(BlueprintCallable)
+	void UpdateDirection();
+
 };
