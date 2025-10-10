@@ -68,7 +68,7 @@ void ULockonComponent::StartLockon(float Radius)
 		OwnerRef
 	};
 
-	bool bHasFoundTarget = { GetWorld()->SweepSingleByChannel(
+	bool bHasFoundTarget { GetWorld()->SweepSingleByChannel(
 		OutResult,
 		CurrentLocation,
 		CurrentLocation,
